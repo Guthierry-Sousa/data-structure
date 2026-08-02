@@ -8,7 +8,7 @@ Consolidar os conceitos estudados na disciplina por meio da implementação e ut
 
 ## Conteúdo
 
-O repositório poderá incluir implementações e atividades envolvendo:
+O repositório inclui implementações e atividades envolvendo:
 
 * Revisão de programação em Python;
 * Tipos de dados, tipos abstratos e estrutura de dados;
