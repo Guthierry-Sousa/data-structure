@@ -12,8 +12,7 @@ def sum_quadrados_menores_pares_que_n_2(n: int) -> int:
 
     return sum(i * i for i in range(2, n, 2))
 
-n = int(input("Informe um número: "))
-
 if __name__ == '__main__':
+    n = int(input("Informe um número: "))
     result = sum_quadrados_menores_pares_que_n_2(n)
     print(f"Soma = {result}")
