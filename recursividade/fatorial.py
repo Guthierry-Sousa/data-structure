@@ -9,7 +9,9 @@ def fatorial_iterativo(n: int): # O(n) ou Theta(n)
     return fat
 
 
-# A função fatorial executa n chamadas recursivas até atingir o caso base. O custo em memória é proporcional ao número de chamadas empilhadas, ou seja, também O(n).
+# A função fatorial executa n chamadas recursivas até atingir o caso base. 
+# O custo em memória é proporcional ao número de chamadas empilhadas, ou seja, também O(n).
+
 def fatorial_recursivo(n: int): # O(n)
 
     if n == 0:
