@@ -7,22 +7,22 @@ class Stack:
 
     def __init__(self):
 
-        self.head = None
+        self.top = None
 
     def push(self, data):
 
         node = Node(data)
-        node.next = self.head
-        self.head = node
+        node.next = self.top
+        self.top = node
 
 
 
     def pop(self):
 
-        if self.head:
+        if self.top:
 
-            temp = self.head.data
-            self.head = self.head.next
+            temp = self.top.data
+            self.top = self.top.next
 
             return temp
 
@@ -34,15 +34,15 @@ class Stack:
 
     def peek(self):
 
-        if self.head is None:
+        if self.top is None:
 
             return None
 
-        return self.head.data
+        return self.top.data
 
     def is_empty(self):
 
-        return self.head is None
+        return self.top is None
 
 
 
