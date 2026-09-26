@@ -3,13 +3,13 @@ import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from listas_simplesmente_encadeadas.singly_linked_list import SinglyLinkedList
+from listas_simplesmente_encadeadas.singly_linked_list import SinglyLinkedList, Node
 
-def soma_impares(lista: SinglyLinkedList) -> int: # O(n)
+def soma_impares(head: Node) -> int: # O(n)
 
     soma = 0
 
-    current = lista.head
+    current = head
 
     while current:
 
@@ -29,4 +29,4 @@ if __name__ == "__main__":
     lista.insertion_at_end(13)
     lista.insertion_at_end(34)
 
-    print(soma_impares(lista))
+    print(soma_impares(lista.head))

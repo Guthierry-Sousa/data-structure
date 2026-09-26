@@ -3,53 +3,31 @@ import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from listas_simplesmente_encadeadas.singly_linked_list import SinglyLinkedList
+from listas_simplesmente_encadeadas.singly_linked_list import SinglyLinkedList, Node
 
-def remove_pares(lista: SinglyLinkedList) -> SinglyLinkedList: # O(n²)
+def remove_pares(head: Node) -> Node: # O(n)
 
-    current = lista.head
-    count = 0
-
-    while current:
-
-        if (current.data % 2) == 0:
-
-            lista.delete_at_position(count)
-
-        else:
-
-            count += 1
-
-        current = current.next
-
-    return lista
-
-def remove_pares2(lista: SinglyLinkedList) -> SinglyLinkedList: # O(n)
-
-    while lista.head.data % 2 == 0 and lista.head:
-        lista.head = lista.head.next
-
-    if lista.head is None:
-        return lista
-
-    current = lista.head
     prev = None
+    current = head
 
-    while current:
+    while current is not None:
 
         if current.data % 2 == 0:
-            current = current.next
-            prev.next = current
+
+            if current == head:
+                current = current.next
+                prev = current
+                head = current
+
+            else:
+                prev.next = current.next
+                current = current.next
 
         else:
-
             prev = current
             current = current.next
 
-    return lista
-
-
-
+    return head
 
 if __name__ == "__main__":
     lista = SinglyLinkedList()
@@ -59,9 +37,9 @@ if __name__ == "__main__":
     lista.insertion_at_end(13)
     lista.insertion_at_end(34)
 
-    lista = remove_pares2(lista)
+    head = remove_pares(lista.head)
 
-    current = lista.head
+    current = head
 
     while current:
         

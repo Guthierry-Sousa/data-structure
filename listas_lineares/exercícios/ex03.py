@@ -3,29 +3,26 @@ import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from listas_simplesmente_encadeadas.singly_linked_list import SinglyLinkedList
+from listas_simplesmente_encadeadas.singly_linked_list import SinglyLinkedList, Node
 from listas_circulares.circular_list import CircularList
 
-def double_circular_list(lista: SinglyLinkedList) -> tuple[CircularList, CircularList]:
+def double_circular_list(head: Node) -> tuple[Node, Node, Node]:
 
-    circ_list1 = CircularList()
-    circ_list2 = CircularList()
-    size_list = lista.size
-    count = 0
-    current = lista.head
+    fast = low = head
 
-    while count < size_list:
+    while fast.next is not None:
 
-        if count < (size_list//2):
-            circ_list1.insertion_at_beginning(current.data)
+        fast = fast.next
+        if not fast.next:
+            break
 
-        else:
-            circ_list2.insertion_at_beginning(current.data)
+        fast = fast.next
+        low = low.next
 
-        current = current.next
-        count += 1
+    fast.next = low.next
+    low.next = head
 
-    return (circ_list1, circ_list2)
+    return head, fast.next
 
 
 if __name__ == "__main__":
@@ -36,6 +33,20 @@ if __name__ == "__main__":
     lista.insertion_at_end(13)
     lista.insertion_at_end(34)
 
-    lista1 , lista2 = double_circular_list(lista)
+    start1, start2 = double_circular_list(lista.head)
 
+    print('Lista 1: ')
+    
+    current = start1
+    while current.next != start1:
+        print(current.data)
+        current = current.next
+    print(current.data)
+
+    print('Lista 2: ')
+    current = start2
+    while current.next != start2:
+        print(current.data)
+        current = current.next
+    print(current.data)
         
