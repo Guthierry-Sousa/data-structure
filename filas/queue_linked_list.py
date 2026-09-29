@@ -41,3 +41,6 @@ class Queue:
             self.rear = None
 
         return data
+
+    def start(self):
+        return self.front

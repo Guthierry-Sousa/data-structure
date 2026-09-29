@@ -18,20 +18,18 @@ class QueueWithStacks:
 
     def dequeue(self): # O(n)
 
-        while (self.stack1.is_empty() == False):
+        if self.stack2.is_empty():
 
-            self.stack2.push(self.stack1.pop())
+            while (self.stack1.is_empty() == False):
+
+                self.stack2.push(self.stack1.pop())
 
         data = self.stack2.pop()
-
-        while (self.stack2.is_empty() == False):
-
-            self.stack1.push(self.stack2.pop())
 
         return data
 
     def is_empty(self):
-        return self.stack1.is_empty()
+        return self.stack1.is_empty() and self.stack2.is_empty()
 
 
         
