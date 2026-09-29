@@ -8,7 +8,7 @@ from stack import Stack
 def remove_all(p: Stack):
 
     if p.is_empty():
-        return
+        return p
 
     p.pop()
     return remove_all(p)
@@ -24,6 +24,6 @@ if __name__ == "__main__":
 
     print(s.is_empty())
 
-    remove_all(s)
+    s = remove_all(s)
 
     print(s.is_empty())

@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from stack import Stack
 
-def invert_array(arr):
+def invert_array(arr: list) -> list:
 
     p = Stack()
     n = len(arr)
